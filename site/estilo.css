@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+/*  Configuração geral do CSS */
+body{
+    font-family: 'Open Sans', sans-serif;
+    color: #444;
+    background-color: #F5F5F5;
+}
+
+h1, h2{
+    margin-top: 0;
+    text-align: center;
+}
+h1{
+    font-size: 1.8em;
+}
+h2{
+    font-size: 1.3em;
+}
+
+/* Estilos das classes de cada elemento do HTML */
+.box{
+    max-width: 800px;
+    background-color: #FFF;
+    margin: auto;
+    padding: 50px;
+    box-shadow: 1px 2px 3px #CCC;
+}
+
+.secoes{
+    display: flex;
+}
+.secoes section{
+    flex: 1;
+    margin: 0px 10px;
+}
+
+/* Formulário */
+form input{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+}
+form button{
+    background: blue;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+form button:hover{
+    background: darkblue;
+}
+
+/* Tabela */
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+table td{
+    border: 1px solid #CCC;
+    padding: 5px 10px;
+}
