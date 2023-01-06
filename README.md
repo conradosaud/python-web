@@ -13,6 +13,10 @@ O projeto já está pronto para ser iniciado.
 
 > [Como usar o pipenv](https://realpython.com/pipenv-guide/)
 
+### README editores
+[pandao](https://pandao.github.io/editor.md/en.html) Exemplos da sintaxe
+[dillinger](https://dillinger.io/) - Editor de arquivos
+[markdownguide](https://www.markdownguide.org/basic-syntax/) - Sintaxe básica
 
 ## Site
 O diretório [site](site) contém arquivos HTML, CSS e JavaScript que simulam uma tela de gerência de usuários, onde é possível cadastrar e consultar os usuários cadastrados no sistema.
@@ -34,4 +38,17 @@ Neste caso, o *__init.py__* está dentro da pasta __servidor__, pois será o loc
 
 ### Módulos
 
-####
+### API - Flask
+A API que recebe requisições através das rotas definidas por ela, é feita utilizando o **Flask**. Para que o servidor (ou seja, a API) possa ser iniciado, é preciso iniciar o Flask com o comando:
+``flask --app api run``
+
+> [Documentação do Flask](https://flask.palletsprojects.com/en/2.2.x/quickstart/)
+
+Note que **api** deve ser o nome do arquivo, então é necessário executar esse comando no diretório do servidor para que funcione, ou então escrever ``servidor/api`` para que o arquivo possa ser localizado diretamente da pasta raiz.
+É recomendável usar o comando de **debug** para o modo de desenvolvimento, a fim de facilitar de possíveis problemas.
+``flask --app api --debug run``
+
+#### Rotas API
+- __usuarios/busca_todos__: retorna todos usuários cadastrados
+- __usuarios/busca_nome/<nome>__: retorna usuários que contém aquela string de nome em qualquer lugar
+- __usuarios/busca/<id>__: retorna o usuário que possui aquele ID

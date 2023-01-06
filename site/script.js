@@ -1,3 +1,7 @@
+/*
+    Todos os códigos JavaScript deste projeto está escrito em EcmaScript 6
+*/
+
 const salvar = (e) => {
 
     e.preventDefault();
@@ -12,6 +16,19 @@ const salvar = (e) => {
         senha: senha
     }
 
-    // ... enviar para o servidor
+    // request("GET", "/usuarios/busca_todos")
+    // .then( resposta => {
+    //     console.log(resposta)
+    //     alert("Usuário inserido com sucesso!")
+    // })
+    // .catch( resposta => console.log( resposta ) );
+
+    request("POST", "/usuarios/insere", usuario)
+    .then( resposta => {
+        console.log(resposta)
+        alert("Usuário inserido com sucesso!")
+    })
+    .catch( resposta => console.log( resposta ) );
 
 }
+
