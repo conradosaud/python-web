@@ -30,19 +30,21 @@
     
             <section>
                 <h2> Lista de usuários </h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <td> ID </td>
-                            <td> Nome </td>
-                            <td> Email </td>
-                        </tr>
-                    </thead>
-
-                    <!-- inserido automaticamente pelo javascript -->
-                    <tbody></tbody> 
-
-                </table>
+                <div class="containerTabela">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td> ID </td>
+                                <td> Nome </td>
+                                <td> Email </td>
+                            </tr>
+                        </thead>
+    
+                        <!-- inserido automaticamente pelo javascript -->
+                        <tbody></tbody> 
+    
+                    </table>
+                </div>
             </section>
 
         </div>
@@ -51,6 +53,12 @@
 
     <script src="./script.js"></script>
     <script src="./request.js"></script>
+    <script>
+        // Assim que o documento carregar por completo, vai executar os comandos abaixo
+        window.onload = () => {
+            buscaTodos();
+        }
+    </script>
 
 </body>
 </html>

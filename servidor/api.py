@@ -1,7 +1,5 @@
-from flask import Flask
-from flask import request
-from flask import Response
-from flask_cors import CORS, cross_origin
+from flask import Flask, request, Response, jsonify
+from flask_cors import CORS
 
 import json
 
@@ -9,22 +7,7 @@ import crud
 from classes.usuario import Usuario
 
 app = Flask(__name__)
-#app.config["CORS_HEADERS"] = "Content-Type"
 CORS(app)
-CORS(app, resources={r"/*": {"origins": "*"}})
-
-# @app.after_request
-# def add_header(resposta):
-#     resposta.headers.add("Access-Control-Allow-Origin", "*")
-#     resposta.headers.add("Access-Control-Allow-Headers", "*")
-#     resposta.headers.add("Access-Control-Allow-Methods", "*")
-#     resposta.headers.set('Access-Control-Allow-Origin', '*')
-#     resposta.headers.set('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE')
-#     resposta.headers.set('Access-Control-Allow-Headers', 'Content-Type')
-#     resposta.headers['Access-Control-Allow-Origin'] = '*'
-#     resposta.headers['Access-Control-Allow-Methods'] = 'GET,POST,PUT,DELETE'
-#     resposta.headers['Access-Control-Allow-Headers'] = 'Content-Type'
-#     return resposta 
 
 # Exemplo da documentação
 @app.route("/")

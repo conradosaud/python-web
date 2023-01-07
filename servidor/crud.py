@@ -1,7 +1,8 @@
 # --- Funções básicas do CRUD: inserir, consultar, deletar e alterar
 
 from bd import bd, cursor
-from classes.usuario import Usuario
+
+import json
 
 def insere( usuario ):
 
@@ -19,7 +20,7 @@ def insere( usuario ):
 
 def buscaTodos():
     
-    query = "SELECT * FROM usuarios"
+    query = "SELECT * FROM usuarios ORDER BY id DESC"
     cursor.execute( query )
     resultados = cursor.fetchall()
 

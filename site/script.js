@@ -2,6 +2,34 @@
     Todos os códigos JavaScript deste projeto está escrito em EcmaScript 6
 */
 
+const carregaTabela = ( dados ) => {
+
+    let html = "";
+
+    dados.map( item => {
+        html += "<tr>";
+            html += "<td>" + item.id + "</td>";
+            html += "<td>" + item.nome + "</td>";
+            html += "<td>" + item.email + "</td>";
+            //html += "<td>" + item.registro + "</td>"
+        html += "</tr>"
+    })
+
+    
+
+    document.querySelector("tbody").innerHTML = html;
+
+}
+
+const buscaTodos = () => {
+    request("GET", "/usuarios/busca_todos")
+    .then( resposta => {
+        const dados = JSON.parse(resposta.data)
+        carregaTabela( dados ) 
+    })
+    .catch( resposta => console.log( resposta ) );
+}
+
 const salvar = (e) => {
 
     e.preventDefault();
@@ -10,23 +38,16 @@ const salvar = (e) => {
     const email = document.getElementsByName("email")[0].value;
     const senha = document.getElementsByName("senha")[0].value;
 
-    const usuario = {
+    let usuario = {
         nome: nome,
         email: email,
         senha: senha
     }
 
-    // request("GET", "/usuarios/busca_todos")
-    // .then( resposta => {
-    //     console.log(resposta)
-    //     alert("Usuário inserido com sucesso!")
-    // })
-    // .catch( resposta => console.log( resposta ) );
-
     request("POST", "/usuarios/insere", usuario)
-    .then( resposta => {
-        console.log(resposta)
-        alert("Usuário inserido com sucesso!")
+    .then( resposta => { 
+        alert("Usuário inserido com sucesso!") 
+        buscaTodos(); // já chama o busca todos para atualizar a tabela ao lado
     })
     .catch( resposta => console.log( resposta ) );
 

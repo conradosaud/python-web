@@ -11,4 +11,4 @@ bd = mysql.connector.connect(
 )
 
 # Essa é a instância do banco. Deve ser usada para executar as queries.
-cursor = bd.cursor()
+cursor = bd.cursor(dictionary=True) # Adicionar dictionary para que sejam criados objetos no javascript

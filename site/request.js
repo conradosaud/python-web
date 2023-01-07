@@ -14,7 +14,11 @@ const URL_API = "http://localhost:5000"
 // Função abstraída para requsições via HTTP usando o XMLHTTPRequest
 const request = (metodo, rota, dados = null) => {
 
+    // Adiciona a rota ao URL da API
     rota = URL_API + rota;
+
+    // Transforma o objeto JavaScript em string para todas as linguagens conseguirem ler
+    dados = JSON.stringify(dados);
 
     // Promise permite a comunicação assíncrona do programa
     return new Promise(function (resolve, reject) {
